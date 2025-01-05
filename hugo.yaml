@@ -1,0 +1,14 @@
+theme: PaperMod
+baseURL: https://example.org/
+languageCode: en-us
+title: ajsqr.dev
+menu:
+  main:
+    - identifier: blog
+      name: blog
+      url: /blog/
+      weight: 10
+    - identifier: about-me
+      name: about-me
+      url: /about-me/
+      weight: 20
