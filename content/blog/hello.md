@@ -5,4 +5,4 @@ title: 'Hello'
 ---
 
 ## Hello
-Just saying a polite hello!
+Testing with a sampe post!
