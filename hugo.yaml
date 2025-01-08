@@ -2,6 +2,9 @@ theme: PaperMod
 baseURL: https://ajsqr.dev
 languageCode: en-us
 title: ajsqr.dev
+params:
+  ShowShareButtons: true
+  ShowReadingTime: true
 taxonomies:
   category: categories
   tag: tags
@@ -15,3 +18,6 @@ menu:
       name: about-me
       url: /about-me/
       weight: 20
+services:
+  googleAnalytics: 
+    ID: G-BVSNN0T30F
