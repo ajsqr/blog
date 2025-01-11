@@ -2,6 +2,7 @@ theme: PaperMod
 baseURL: https://ajsqr.dev
 languageCode: en-us
 title: ajsqr.dev
+pluralizeListTitles: false
 params:
   ShowShareButtons: true
   ShowReadingTime: true
