@@ -1,7 +1,7 @@
 ---
 date: '2025-01-11T16:47:03+05:30'
 draft: false
-title: 'Implemeting Websocket Handshake'
+title: 'Implementing Websocket Handshake'
 tags: [websocket, RFC, RFC 6455, Golang]
 ---
 
