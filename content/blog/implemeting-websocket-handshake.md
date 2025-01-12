@@ -135,6 +135,43 @@ go build tcp-example/main.go
 
 I'm using [postman](https://www.postman.com/) client as the websocket client. After running the example above, we can easily validate that the websocket connection was successful. 
 
+## HTTP with Websockets
+
+Previously, we have talked about how HTTP and websocket handlers could listen to the same port, and that was one of the really cool things about the websocket handshake. However, in the above example I have a dedicated listener which only handles websocket requests. Lets change that and re-write the code to handle both websocket and HTTP requests.
+
+The `net/http` standard library has this really useful feature called [hijacker](https://pkg.go.dev/net/http#Hijacker). I think this is very cool, but some people are really [bummed](https://groups.google.com/g/golang-nuts/c/sN6BFoli5GE/) by the name 😁. 
+
+If the response writer implements the hijacker interface, we can very easily get a hold of the underlying TCP connection and work from there. This lets us use the same port for serving both websocket and HTTP traffic.
+
+```go
+func main() {
+	ws := wsh{}
+	http.ListenAndServe(":8123", &ws)
+}
+
+type wsh struct {}
+
+func (ws *wsh) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	hijacker, ok := w.(http.Hijacker)
+	if !ok{
+		w.WriteHeader(http.StatusInternalServerError)
+		return
+	}
+
+	_, rw, err := hijacker.Hijack()
+	if err != nil{
+		w.WriteHeader(http.StatusInternalServerError)
+		return
+	}
+
+	resp := newAcceptResponse(r)
+	resp.Write(rw)
+	rw.Flush()
+}
+```
+
+The complete code for the above example can be found [here](https://github.com/ajsqr/websocket-implementation-examples/blob/master/hijacker-example/main.go).
+
 In the next post, we will see how websocket messages are fragmented and sent across the TCP connection. Stay tuned!
 
 ## Sources
