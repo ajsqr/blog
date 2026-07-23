@@ -1,7 +1,7 @@
 ---
 date: '2026-07-22T18:55:32+05:30'
 draft: false
-title: 'Building Wombat - The Reverse TCP Tunnel'
+title: 'Building Wombat - A Reverse TCP Tunnel'
 ---
 
 ![wombat](/images/building-wombat-a-reverse-tcp-tunnel/wombat.jpg "Photo by pen_ash on pixabay")
@@ -56,7 +56,7 @@ type Frame struct {
 
 Similarly, when a connection is closed, the server or the agent can inform the other and close the corresponding local connection. In between, data is streamed through the tunnel.
 
-![wombat](/images/building-wombat-a-reverse-tcp-tunnel/wombat-arch-2.png "Wombat architecture")
+![wombat](/images/building-wombat-a-reverse-tcp-tunnel/wombat-arch.png "Wombat architecture")
 
 From the architecture diagram, it's clear that both ends of the tunnel are quite similar. Perhaps we could implement something generic for managing a tunnel endpoint. Maybe something that can deal with dispatching frames.
 
@@ -68,7 +68,7 @@ The client packages the data in an envelope (aka a frame) and dispatches it. The
 
 When the endpoint receives a frame, it has enough information to deliver it to the correct session—without ever knowing what the payload contains.
 
-![wombat](/images/building-wombat-a-reverse-tcp-tunnel/dispp.png "Wombat dispatcher")
+![wombat](/images/building-wombat-a-reverse-tcp-tunnel/dispatcher.png "Wombat dispatcher")
 
 ## Putting It All Together
 
