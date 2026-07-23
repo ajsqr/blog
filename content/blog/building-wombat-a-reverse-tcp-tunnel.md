@@ -68,7 +68,7 @@ The client packages the data in an envelope (aka a frame) and dispatches it. The
 
 When the endpoint receives a frame, it has enough information to deliver it to the correct session—without ever knowing what the payload contains.
 
-![wombat](/images/building-wombat-a-reverse-tcp-tunnel/dispatcher.png "Wombat dispatcher")
+![wombat](/images/building-wombat-a-reverse-tcp-tunnel/disptcher.png "Wombat dispatcher")
 
 ## Putting It All Together
 
