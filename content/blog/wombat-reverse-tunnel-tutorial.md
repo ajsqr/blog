@@ -13,7 +13,7 @@ By the end of this tutorial you'll have:
 - A TLS-encrypted tunnel connecting the two
 - A local web service accessible from anywhere on the internet
 
-If you're interested in how Wombat works internally, check out my previous post, *Building Wombat: A Reverse TCP Tunnel*. This guide focuses purely on getting started.
+If you're interested in how Wombat works internally, check out my previous post, [Building Wombat: A Reverse TCP Tunnel]({{% relref "blog/building-wombat-a-reverse-tcp-tunnel.md" %}}). This guide focuses purely on getting started.
 
 # About Wombat
 
